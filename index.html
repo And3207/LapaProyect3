@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="main.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+ <body>
+ 
+  <header>
+ <img class="logo" src="logo.png" alt="logo">
+ <button class="abrir-menu" id="abrir"><i class="bi bi-x-diamond-fill"></i></i></button>
+ <nav class="nav" id="nav">
+  <button class="cerrar-menu" id="cerrar"><i class="bi bi-x-square"></i></button>
+ <ul class="nav-list">
+  <li><a href="#" class="opciones">inicio</a></l1> 
+  <li><a href="#" class="opciones">noticias</a></l1> 
+  <li><a href="#" class="opciones">contacto</a></l1> 
+  <li><a href="#" class="opciones">informacion</a></l1> 
+ </ul>
+</nav>
+
+  </header>
+  <br>
+
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f0f0f0;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          
+      }
+      .container {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          width: 80%;
+          max-width: 900px;
+          background-color: #fff;
+          padding: 20px;
+          border: 2px solid #000;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+      .form-container {
+          flex: 1;
+          margin-right: 20px;
+          padding-right: 20px;
+          border-right: 2px solid #000;
+      }
+      .info-container {
+          flex: 1;
+          padding: 20px;
+      }
+      form {
+          width: 100%;
+      }
+      h2 {
+          margin-top: 0;
+          font-size: 24px;
+          color: #333;
+      }
+      label {
+          display: block;
+          margin-bottom: 8px;
+          font-size: 18px;
+          color: #333;
+      }
+      select, .but1 {
+          width: calc(100% - 22px); /* Para compensar el padding del select */
+          padding: 10px;
+          margin-bottom: 15px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 16px;
+      }
+      .but1 {
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          cursor: pointer;
+      }
+      .but:hover {
+          background-color: #45a049;
+      }
+  </style>
+  </head>
+  
+  <center>
+  <div class="container">
+      <div class="form-container">
+          <h2>Seleccionar Estado y Municipio</h2>
+          <form id="formulario">
+              <fieldset>
+                  <legend>Estado y Municipio</legend>
+  
+                  <label for="estado">Estado:</label>
+                  <select id="estado" name="estado">
+                      <option value="cdmx">Ciudad de México</option>
+                      <option value="edomex">Estado de México</option>
+                      <!-- Agrega más opciones con valores para cada estado -->
+                  </select>
+  
+                  <label for="municipio">Municipio:</label>
+                  <select id="municipio" name="municipio">
+                      <!-- Aquí se cargarán los municipios dependiendo del estado seleccionado -->
+                  </select>
+  
+              </fieldset>
+  
+              <button class="but1" type="submit">Mostrar información</button>
+          </form>
+      </div>
+      <div class="info-container">
+          <h2>Información mostrada aquí</h2>
+          <p>Aquí se mostrará la información después de enviar el formulario.</p>
+      </div>
+  </div>
+  </center>
+<br>
+<br>
+  <div class="contact-section">
+    <div class="contact-container green-background">
+     <center> <h2>DISTRIBUCION DEL AGUA </h2>
+      <p>La buena distribución del agua es crucial para múltiples aspectos de la vida humana y el medio ambiente.</p>
+
+      .</p></center>
+      <hr> <BR></BR> <center>
+        <div class="lisr-con"></div>
+      <UL class="roman-list">
+<li>ANGEL GABREL PEREZ ANGELES</li>
+<li>AGUILAR ANDRES</li>
+<li>ANGEL HERNANDEZ PERALES</li>
+<li>OLLIN NERI HERNANDEZ</li>
+      </UL>
+      </center>
+    </div>
+    <div class="contact-container"></div> <!-- Segunda sección vacía -->
+    <div class="contact-container"></div> <!-- Tercera sección vacía -->
+  </div>
+
+
+  <script>
+
+    // Datos simulados de municipios por estado
+    const municipiosPorEstado = {
+        cdmx: ["Álvaro Obregón", "Benito Juárez", "Coyoacán", "Iztapalapa"],
+        edomex: ["Toluca", "Nezahualcóyotl", "Naucalpan", "Ecatepec"]
+        // Agrega más estados y municipios según sea necesario
+    };
+
+    // Función para actualizar los municipios cuando cambia el estado seleccionado
+    function actualizarMunicipios() {
+        const estadoSeleccionado = document.getElementById("estado").value;
+        const municipios = municipiosPorEstado[estadoSeleccionado] || [];
+
+        const municipioSelect = document.getElementById("municipio");
+        municipioSelect.innerHTML = ""; // Limpiar opciones anteriores
+
+        municipios.forEach(municipio => {
+            const option = document.createElement("option");
+            option.value = municipio;
+            option.textContent = municipio;
+            municipioSelect.appendChild(option);
+        });
+    }
+
+    // Evento de cambio en el select de estado
+    document.getElementById("estado").addEventListener("change", actualizarMunicipios);
+
+    // Llamar a actualizarMunicipios al inicio para cargar los municipios del estado inicial seleccionado
+    actualizarMunicipios();
+</script>
+  </script>
+ 
+  
+  </html>
+ 
+  <script src="main.js"></script>
+
+</body>
